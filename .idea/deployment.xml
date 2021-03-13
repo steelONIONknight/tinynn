@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Server 3 (b0e4139f-516b-4c73-afc7-0f1f0dbfb39a)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/cbd109-3/Users/lifang/tinynn" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-server-3" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote-host" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-server-3" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="Server 4 (b72cebbc-8910-4867-9ab4-cce8e88f7d98)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/lifang/tinynn" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote-host-1" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote-host-1" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

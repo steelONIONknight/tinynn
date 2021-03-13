@@ -1,0 +1,6 @@
+/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/CMakeFiles/rebuild_cache.dir
+/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/CMakeFiles/edit_cache.dir
+/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/CMakeFiles/tinynn.dir
+/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/CMakeFiles/rebuild_cache.dir
+/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/CMakeFiles/edit_cache.dir
+/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/CMakeFiles/CudaOperator.dir

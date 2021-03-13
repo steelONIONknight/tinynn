@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="tinynn"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\layer\;CMake Files\layer\cuda\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinynn">
+				<Option output="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/tinynn" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 tinynn"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinynn/fast">
+				<Option output="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/tinynn" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 tinynn/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CudaOperator">
+				<Option output="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/libCudaOperator.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 CudaOperator"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CudaOperator/fast">
+				<Option output="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/libCudaOperator.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/cuda/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 CudaOperator/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-server-3/layer/cuda/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/allocator.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/allocator.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/c_api.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/c_api.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/cpu.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/cpu.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/datareader.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/datareader.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/gpu.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/gpu.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/absval.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/absval.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cast.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cast.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cuda/absval_cuda.cpp">
+			<Option target="tinynn"/>
+			<Option target="CudaOperator"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cuda/absval_cuda.cu">
+			<Option target="CudaOperator"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cuda/absval_cuda.h">
+			<Option target="tinynn"/>
+			<Option target="CudaOperator"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cuda/test_cuda.cu">
+			<Option target="CudaOperator"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cuda/test_cuda.h">
+			<Option target="CudaOperator"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/main.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/mat.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/mat.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/modelbin.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/modelbin.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/option.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/option.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/paramdict.cpp">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/paramdict.h">
+			<Option target="tinynn"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cuda/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\layer\cuda\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

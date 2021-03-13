@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CUDA_COMPILER=/usr/local/cuda-10.0/bin/nvcc -G "CodeBlocks - Unix Makefiles" /home/cbd109-3/Users/lifang/tinynn
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host

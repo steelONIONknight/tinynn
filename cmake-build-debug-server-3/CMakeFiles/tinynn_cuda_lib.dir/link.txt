@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtinynn_cuda_lib.a  CMakeFiles/tinynn_cuda_lib.dir/layer/cuda/tinynn_cuda_lib_generated_absval_cuda.cu.o
+/usr/bin/ranlib libtinynn_cuda_lib.a

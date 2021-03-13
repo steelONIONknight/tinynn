@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DLproject"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DLproject">
+				<Option output="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/DLproject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 DLproject"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DLproject/fast">
+				<Option output="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/DLproject" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 DLproject/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/cbd109-3/Users/lifang/tinynn/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/allocator.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/c_api.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/c_api.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/cpu.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/cpu.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/cuda_util.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/datareader.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/datareader.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/absval.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/absval.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/absval_cuda.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/absval_cuda.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cast.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/layer/cast.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/main.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/mat.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/mat.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/modelbin.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/modelbin.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/option.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/option.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/paramdict.cpp">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/paramdict.h">
+			<Option target="DLproject"/>
+		</Unit>
+		<Unit filename="/home/cbd109-3/Users/lifang/tinynn/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
