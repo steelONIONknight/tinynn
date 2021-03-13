@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCudaOperator.a  CMakeFiles/CudaOperator.dir/absval_cuda.cpp.o CMakeFiles/CudaOperator.dir/absval_cuda.cu.o CMakeFiles/CudaOperator.dir/test_cuda.cu.o
-/usr/bin/ranlib libCudaOperator.a
