@@ -15,9 +15,7 @@ paddle-Lite
 * 本月（2021.3）应该测试完absval_cuda算子。
 * 之后计划，完成gemm_cuda，convolution_cuda等算子，并做些优化实践。
 
-## 版本
-
-### version 0.0.1
+## 进度
 
 2021.3.13
 
