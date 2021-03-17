@@ -86,9 +86,19 @@ public:
     Mat(const CudaMat& cuMat);
 //#endif
 
+    //data reference
     //channel data reference
     Mat refer_channel(int c);
     const Mat refer_channel(int c) const;
+
+    float* row(int y);
+    const float* row(int y) const;
+
+    template<typename T>
+    T* row(int y);
+
+    template<typename T>
+    const T* row(int y) const;
 
     //类型转化操作
     template<typename T>
@@ -604,6 +614,28 @@ inline Mat Mat::refer_channel(int c)
 inline const Mat Mat::refer_channel(int c) const
 {
     return Mat(width, height, (unsigned char*)data + c * cstep * elemsize, elemsize, elempack, allocator);
+}
+
+inline float *Mat::row(int y)
+{
+    return (float*)((unsigned char*)data + (size_t)y * width * elemsize);
+}
+
+inline const float *Mat::row(int y) const
+{
+    return (const float*)((unsigned char*)data + (size_t)y * width * elemsize);
+}
+
+template<typename T>
+inline T* Mat::row(int y)
+{
+    return (T*)((unsigned char*)data + (size_t)y * width * elemsize);
+}
+
+template<typename T>
+inline const T* Mat::row(int y) const
+{
+    return (const T*)((unsigned char*)data + (size_t)y * width * elemsize);
 }
 
 inline void Mat::create_like(const Mat &m, Allocator *_allocator)
