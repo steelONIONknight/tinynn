@@ -8,7 +8,7 @@
 
 namespace tinynn
 {
-class AbsVal_cuda: public AbsVal
+class AbsVal_cuda: virtual public AbsVal
 {
 public:
     AbsVal_cuda();
