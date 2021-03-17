@@ -130,7 +130,20 @@ Layer* create_layer(const char* type);
 
 //create layer from layer type
 Layer* create_layer(int index);
-}
 
+
+#define DEFINE_LAYER_CREATOR(name)                          \
+    ::tinynn::Layer* name##layer_creator(void* /*userdata*/)\
+    {                                                       \
+        return new name;                                    \
+    }
+
+#define DEFINE_LAYER_DESTROYER(name)                                       \
+    void name##_layer_destroyer(::tinynn::Layer* layer, void* /*userdata*/)\
+    {                                                                      \
+        delete layer;                                                      \
+    }
+
+}//namespace tinynn
 
 #endif //DLPROJECT_LAYER_H
