@@ -20,7 +20,7 @@ public:
 
     // thread count
     // default value is the one returned by get_cpu_count()
-    int num_thread;
+    int num_threads;
 
     //blob memory allocator
     Allocator* blob_allocator;
