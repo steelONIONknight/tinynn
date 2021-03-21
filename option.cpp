@@ -16,6 +16,9 @@ Option::Option()
     blob_allocator = nullptr;
     workspace_allocator = nullptr;
 
+    blob_cuda_allocator = nullptr;
+    workspace_cuda_allocator = nullptr;
+
     openmp_blocktime = 20;
 
     use_winograd_convolution = true;

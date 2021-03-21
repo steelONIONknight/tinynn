@@ -7,6 +7,7 @@
 namespace tinynn
 {
 class Allocator;
+class CudaAllocator;
 class Option
 {
 public:
@@ -28,6 +29,9 @@ public:
     //workspace memory allocator
     Allocator* workspace_allocator;
 
+    CudaAllocator* blob_cuda_allocator;
+
+    CudaAllocator* workspace_cuda_allocator;
 
     // the time openmp threads busy-wait for more work before going to sleep
     // default value is 20ms to keep the cores enabled
@@ -45,6 +49,8 @@ public:
     // changes should be applied before loading network structure and weight
     // enabled by default
     bool use_sgemm_convolution;
+
+    bool use_cuda_compute;
 
     //enable option for gpu inference
     bool use_fp16_packed;
@@ -66,18 +72,7 @@ public:
     bool use_subgroup_shuffle;
 
 
-    bool use_reserved_0;
-    bool use_reserved_1;
-    bool use_reserved_2;
-    bool use_reserved_3;
-    bool use_reserved_4;
-    bool use_reserved_5;
-    bool use_reserved_6;
-    bool use_reserved_7;
-    bool use_reserved_8;
-    bool use_reserved_9;
-    bool use_reserved_10;
-    bool use_reserved_11;
+
 };
 }
 #endif //DLPROJECT_OPTION_H
