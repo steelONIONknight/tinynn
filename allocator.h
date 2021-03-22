@@ -52,7 +52,7 @@ static inline void align_free(void* ptr)
 {
     if (ptr)
     {
-#if (defined(__unix__)) &&_POSIX_C_SOURCE >=200112L
+#if (defined(__unix__)) &&_POSIX_C_SOURCE >= 200112L
       free(ptr);
 #else
         unsigned char** addr = (unsigned char**)ptr - 1;
