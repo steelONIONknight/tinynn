@@ -52,6 +52,8 @@ public:
     Mat(int _width, int _height, void* _data, size_t _elemsize, int _elempack, Allocator* _allocator = nullptr);
     //external packed dim
     Mat(int _width, int _height, int _channel, void* _data, size_t _elemsize, int _elempack, Allocator* _allocator = nullptr);
+    //copy constructor
+    Mat(const Mat& m);
 
     //release
     ~Mat();
@@ -247,6 +249,14 @@ inline Mat::Mat(int _width, int _height, int _channel, void *_data, size_t _elem
 {
     cstep = align_size((size_t)width * height * elemsize, 16) / elemsize;
 }
+//拷贝了对象一次，refcount值必须加1
+inline Mat::Mat(const Mat &m):
+                width(m.width), height(m.height), channel(m.channel), elemsize(m.elemsize), allocator(m.allocator),
+                data(m.data), refcount(m.refcount), elempack(m.elempack), cstep(m.cstep), dims(m.dims)
+{
+    if (refcount)
+        XADD(refcount.get(), 1);
+}
 
 inline bool Mat::empty() const
 {
@@ -260,7 +270,7 @@ inline size_t Mat::total() const
 
 inline Mat Mat::clone(Allocator *_allocator) const
 {
-    if (!empty())
+    if (empty())
         return Mat();
 
     Mat m;
@@ -669,6 +679,7 @@ inline Mat &Mat::operator=(const Mat &m)
     dims = m.dims;
     width = m.width;
     height = m.height;
+    channel = m.channel;
 
     cstep = m.cstep;
 
