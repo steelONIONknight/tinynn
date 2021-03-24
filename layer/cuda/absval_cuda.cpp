@@ -11,6 +11,7 @@ AbsVal_cuda::AbsVal_cuda()
 {
     one_blob_only = true;
     support_inplace = true;
+    support_cuda = true;
 }
 
 int AbsVal_cuda::forward_inplace(CudaMat &bottom_top_blob, const Option &/*opt*/) const
