@@ -20,3 +20,7 @@ paddle-Lite
 2021.3.13
 
 Mat（host），cudaMat（device）数据结构目前初步完成，涉及host端与device端的通信。
+
+2021.3.24
+
+算子absval测试完毕。
