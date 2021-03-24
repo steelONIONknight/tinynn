@@ -55,5 +55,18 @@ private:
 private:
     ModelBinFromMatArrayPrivate const* d;
 };
+
+class CudaModelBinFromDataReader: public ModelBinFromDataReader
+{
+    CudaModelBinFromDataReader(const DataReader& dr);
+
+    using ModelBinFromDataReader::load;
+};
+
+class CudaModelBinFromMatArray: public ModelBinFromMatArray
+{
+    using ModelBinFromMatArray::ModelBinFromMatArray;
+
+};
 }
 #endif //DLPROJECT_MODELBIN_H
