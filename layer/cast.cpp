@@ -69,7 +69,7 @@ int Cast::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) cons
     size_t size = width * height * elempack;
     if (type_from == 1 && type_to == 2)
     {
-#pragma omp parallel for num_threads(opt.num_thread)
+#pragma omp parallel for num_threads(opt.num_threads)
         for (int i = 0; i < channel; ++i)
         {
             const float* ptr = bottom_blob.refer_channel(i);
@@ -82,7 +82,7 @@ int Cast::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) cons
     }
     else if (type_from == 2 && type_to == 1)
     {
-#pragma omp parallel for num_threads(opt.num_thread)
+#pragma omp parallel for num_threads(opt.num_threads)
         for (int i = 0; i < channel; ++i)
         {
             const unsigned short* ptr = bottom_blob.refer_channel(i);
