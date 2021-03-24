@@ -3,6 +3,7 @@
 //
 
 #include "layer.h"
+#include "layer_declaration.h"
 
 namespace tinynn
 {
@@ -80,8 +81,34 @@ int Layer::forward_inplace(Mat& /*bottom_top_blob*/, const Option &/*opt*/) cons
     return -1;
 }
 
-static const layer_registry_entry layer_registry[] = {
+int Layer::load_model(const CudaModelBinFromMatArray &)
+{
+    return 0;
+}
+
+int Layer::forward(const std::vector<CudaMat> &/*bottom_blobs*/, std::vector<CudaMat> &/*top_blobs*/, const Option &/*opt*/) const
+{
+    return -1;
+}
+
+int Layer::forward(const CudaMat &/*bottom_blob*/, CudaMat &/*top_blob*/, const Option &/*opt*/) const
+{
+    return -1;
+}
+
+int Layer::forward_inplace(std::vector<CudaMat> &/*bottom_top_blob*/, const Option &/*opt*/) const
+{
+    return -1;
+}
+
+int Layer::forward_inplace(CudaMat &/*bottom_top_blob*/, const Option &/*opt*/) const
+{
+    return -1;
+}
+
 //TODO
+static const layer_registry_entry layer_registry[] = {
+#include "layer_registry.h"
 };
 
 static const int layer_registry_entry_count = sizeof(layer_registry) / sizeof(layer_registry_entry);

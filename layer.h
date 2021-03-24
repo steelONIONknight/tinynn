@@ -55,16 +55,7 @@ public:
     //shader tensor storage
     bool support_tensor_storage;
 
-    bool support_reserved_0{};
-    bool support_reserved_1{};
-    bool support_reserved_2{};
-    bool support_reserved_3{};
-    bool support_reserved_4{};
-    bool support_reserved_5{};
-    bool support_reserved_6{};
-    bool support_reserved_7{};
-    bool support_reserved_8{};
-    bool support_reserved_9{};
+    bool support_cuda{false};
 
 
 public:
@@ -75,8 +66,18 @@ public:
 
     //implement inplace inference
     //return 0 if success
-    virtual int forward_inplace(std::vector<Mat>& bottom_top_blob ,const Option& opt) const;
+    virtual int forward_inplace(std::vector<Mat>& bottom_top_blob, const Option& opt) const;
     virtual int forward_inplace(Mat& bottom_top_blob, const Option& opt) const;
+
+public:
+    const CudaDevice* cudev;
+    virtual int load_model(const CudaModelBinFromMatArray& /*mb*/);
+
+    virtual int forward(const std::vector<CudaMat>& bottom_blobs, std::vector<CudaMat>& top_blobs, const Option& opt) const;
+    virtual int forward(const CudaMat& bottom_blob, CudaMat& top_blob, const Option& opt) const;
+
+    virtual int forward_inplace(std::vector<CudaMat>& bottom_top_blob, const Option& opt) const;
+    virtual int forward_inplace(CudaMat& bottom_top_blob, const Option& opt) const;
 
 public:
     //自定义用户数据
@@ -132,10 +133,10 @@ Layer* create_layer(const char* type);
 Layer* create_layer(int index);
 
 
-#define DEFINE_LAYER_CREATOR(name)                          \
-    ::tinynn::Layer* name##layer_creator(void* /*userdata*/)\
-    {                                                       \
-        return new name;                                    \
+#define DEFINE_LAYER_CREATOR(name)                           \
+    ::tinynn::Layer* name##_layer_creator(void* /*userdata*/)\
+    {                                                        \
+        return new name;                                     \
     }
 
 #define DEFINE_LAYER_DESTROYER(name)                                       \
