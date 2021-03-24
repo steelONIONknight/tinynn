@@ -19,7 +19,7 @@ int AbsVal::forward_inplace(Mat &bottom_top_blob, const Option &opt) const
     int channel = bottom_top_blob.channel;
     int size = width * height;
 
-#pragma omp parallel for num_threads(opt.num_thread)
+#pragma omp parallel for num_threads(opt.num_threads)
     for (int i = 0; i < channel; ++i)
     {
         float* ptr = bottom_top_blob.refer_channel(i);
