@@ -9,6 +9,7 @@
 #include "mat.h"
 #include "gpu.h"
 #include "./layer/cuda/test_cuda.h"
+#include "./tests/test_absval.h"
 
 #define MALLOC_ALIGN 16
 
@@ -35,34 +36,34 @@ int main() {
 //        std::cout << "Wrong" << std::endl;
 //    tinynn::align_free(test);
 
-    tinynn::Mat matrix(2, 3, 15);
-    int len = matrix.width * matrix.height;
-    for (int i = 0; i < matrix.channel; ++i)
-    {
-        float *p = (float *)matrix.refer_channel(i);
-        for (int j = 0; j < len; ++j)
-        {
-            p[j] = (float)(i * len + (j + 1));
-        }
-    }
+//    tinynn::Mat matrix(2, 3, 15);
+//    int len = matrix.width * matrix.height;
+//    for (int i = 0; i < matrix.channel; ++i)
+//    {
+//        float *p = (float *)matrix.refer_channel(i);
+//        for (int j = 0; j < len; ++j)
+//        {
+//            p[j] = (float)(i * len + (j + 1));
+//        }
+//    }
+//
+//    print_matrix(matrix);
+//
+//    int device_index = 0;
+//    tinynn::CudaDevice device(device_index);
+//
+//    tinynn::CudaAllocator cudaAllocator(&device);
+//
+//    tinynn::CudaMat cuMat(matrix, &cudaAllocator);
+//
+//    tinynn::fun((float*)cuMat.data, cuMat.width, cuMat.height, cuMat.channel, cuMat.pitch);
+//
+//    tinynn::Mat matrix2;
+//
+//    matrix2 = cuMat;
+//
+//    print_matrix(matrix2);
 
-    print_matrix(matrix);
-
-    int device_index = 0;
-    tinynn::CudaDevice device(device_index);
-
-    tinynn::CudaAllocator cudaAllocator(&device);
-
-    tinynn::CudaMat cuMat(matrix, &cudaAllocator);
-
-    tinynn::fun((float*)cuMat.data, cuMat.width, cuMat.height, cuMat.channel, cuMat.pitch);
-
-    tinynn::Mat matrix2;
-
-    matrix2 = cuMat;
-
-    print_matrix(matrix2);
-
-
+    test_absval();
     return 0;
 }
