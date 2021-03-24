@@ -250,6 +250,11 @@ inline Mat::Mat(int _width, int _height, int _channel, void *_data, size_t _elem
     cstep = align_size((size_t)width * height * elemsize, 16) / elemsize;
 }
 //拷贝了对象一次，refcount值必须加1
+//当调用clone函数时，会在此函数的作用域创建一个本地Mat类对象
+//当函数执行结束时，会调用拷贝构造函数复制该本地对象到外部
+//之后执行析构函数释放本地对象，这会导致refcount指向的值减1，
+//这不是我们希望的结果，所以在调用拷贝构造函数先对refcount指向的值加1。
+//不然的话之后使用clone函数返回的对象的*refcount的值0。而且还会出现double free的问题。
 inline Mat::Mat(const Mat &m):
                 width(m.width), height(m.height), channel(m.channel), elemsize(m.elemsize), allocator(m.allocator),
                 data(m.data), refcount(m.refcount), elempack(m.elempack), cstep(m.cstep), dims(m.dims)
