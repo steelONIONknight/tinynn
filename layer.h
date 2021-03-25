@@ -23,7 +23,7 @@ public:
 
     //加载parsed dict中的layer的参数，具体来讲就是算子的参数
     //成功返回0
-    virtual int load_parm(const ParamDict& pd);
+    virtual int load_param(const ParamDict& pd);
 
     //加载模型，即加载模型的权重
     //成功返回0
@@ -66,7 +66,7 @@ public:
 
     //implement inplace inference
     //return 0 if success
-    virtual int forward_inplace(std::vector<Mat>& bottom_top_blob, const Option& opt) const;
+    virtual int forward_inplace(std::vector<Mat>& bottom_top_blobs, const Option& opt) const;
     virtual int forward_inplace(Mat& bottom_top_blob, const Option& opt) const;
 
 public:
@@ -76,7 +76,7 @@ public:
     virtual int forward(const std::vector<CudaMat>& bottom_blobs, std::vector<CudaMat>& top_blobs, const Option& opt) const;
     virtual int forward(const CudaMat& bottom_blob, CudaMat& top_blob, const Option& opt) const;
 
-    virtual int forward_inplace(std::vector<CudaMat>& bottom_top_blob, const Option& opt) const;
+    virtual int forward_inplace(std::vector<CudaMat>& bottom_top_blobs, const Option& opt) const;
     virtual int forward_inplace(CudaMat& bottom_top_blob, const Option& opt) const;
 
 public:

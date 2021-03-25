@@ -22,7 +22,7 @@ Layer::~Layer()
 {
 }
 
-int Layer::load_parm(const ParamDict& /*pd*/)
+int Layer::load_param(const ParamDict& /*pd*/)
 {
     return 0;
 }
@@ -71,7 +71,7 @@ int Layer::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) con
     return forward_inplace(top_blob, opt);
 }
 
-int Layer::forward_inplace(std::vector<Mat>& /*bottom_top_blob*/, const Option &/*opt*/) const
+int Layer::forward_inplace(std::vector<Mat>& /*bottom_top_blobs*/, const Option &/*opt*/) const
 {
     return -1;
 }
@@ -96,7 +96,7 @@ int Layer::forward(const CudaMat &/*bottom_blob*/, CudaMat &/*top_blob*/, const 
     return -1;
 }
 
-int Layer::forward_inplace(std::vector<CudaMat> &/*bottom_top_blob*/, const Option &/*opt*/) const
+int Layer::forward_inplace(std::vector<CudaMat> &/*bottom_top_blobs*/, const Option &/*opt*/) const
 {
     return -1;
 }

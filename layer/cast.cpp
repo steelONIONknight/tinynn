@@ -15,7 +15,7 @@ Cast::Cast()
     support_packing = true;
 }
 
-int Cast::load_parm(const ParamDict &pd)
+int Cast::load_param(const ParamDict &pd)
 {
     type_from = pd.get(0, 0);
     type_to = pd.get(1, 0);
