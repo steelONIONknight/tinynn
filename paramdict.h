@@ -23,7 +23,7 @@ public:
 
     int get(int id, int def) const;
     float get(int id, float def) const;
-    Mat get(int id, Mat& def) const;
+    Mat get(int id, const Mat& def) const;
 
     void set(int id, int def);
     void set(int id, float def);

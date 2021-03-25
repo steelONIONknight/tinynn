@@ -83,7 +83,7 @@ float ParamDict::get(int id, float def) const
     return d->params[id].type ? d->params[id].f: def;
 }
 
-Mat ParamDict::get(int id, Mat &def) const
+Mat ParamDict::get(int id, const Mat &def) const
 {
     return d->params[id].type ? d->params[id].v: def;
 }
