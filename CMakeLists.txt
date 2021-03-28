@@ -64,7 +64,7 @@ add_executable(tinynn main.cpp
         layer/cast.cpp layer/cast.h
         layer/cuda/absval_cuda.h layer/cuda/absval_cuda.cpp
         layer_declaration.h
-        tests/prng.h tests/testutil.h tests/test_absval.cpp tests/test_absval.h)
+        tests/prng.h tests/testutil.h tests/test_absval.cpp tests/test_absval.h layer/innerproduct.cpp layer/innerproduct.h)
 
 
 target_link_libraries(tinynn ${EXTRA_LIBS}
