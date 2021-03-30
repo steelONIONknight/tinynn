@@ -182,6 +182,8 @@ public:
     void create_like(const Mat& m, CudaAllocator* _cudaAllocator = nullptr);
 
     void create_like(const CudaMat& cuMat, CudaAllocator* _cudaAllocator = nullptr);
+
+    CudaMat& operator=(const Mat& m);
 //    //data reference
 //    CudaMat refer_channel(int c);
 //    const CudaMat refer_channel(int c) const;
@@ -202,6 +204,26 @@ public:
 };
 //#endif
 
+class CudaMatInfo
+{
+public:
+    CudaMatInfo(const CudaMat& cuMat):
+        width(cuMat.width), height(cuMat.height), channel(cuMat.channel), dims(cuMat.dims),elempack(cuMat.elempack),
+        elemsize(cuMat.elemsize), cstep(cuMat.cstep), pitch(cuMat.pitch)
+    {
+    }
+
+    int dims;
+    int width;
+    int height;
+    int channel;
+    int elempack;
+
+    size_t elemsize;
+    size_t cstep;
+    size_t pitch;
+
+};
 unsigned short float32_to_float16(float value);
 float float16_to_float32(unsigned short value);
 
@@ -1068,6 +1090,33 @@ inline void CudaMat::create_like(const CudaMat &cuMat, CudaAllocator *_cudaAlloc
     else
         create(cuMat.width, cuMat.height, cuMat.channel, cuMat.elemsize, cuMat.elempack, _cudaAllocator);
 }
+
+inline CudaMat& CudaMat::operator=(const Mat &m)
+{
+    create_like(m);
+
+    if (total() > 0)
+    {
+        if (dims == 1)
+        {
+            data = cudaAllocator->align_malloc(width, elemsize);
+            CHECK(cudaMemcpy(data, m.data, (size_t)width * elemsize, cudaMemcpyHostToDevice));
+        }
+        else if (dims == 2)
+        {
+            data = cudaAllocator->align_malloc(width, height, elemsize);
+            CHECK(cudaMemcpy(data, m.data, (size_t)width * height * elemsize, cudaMemcpyHostToDevice));
+        }
+        else if (dims == 3)
+        {
+            data = cudaAllocator->align_malloc(width, height, channel, elemsize, &pitch, cstep);
+            CHECK(cudaMemcpy2D(data, pitch, m.data, m.cstep * m.elemsize, (size_t)width * height * elemsize, channel, cudaMemcpyHostToDevice));
+        }
+        refcount = std::make_shared<int>(1);
+    }
+    return *this;
+}
+
 //#endif
 }
 #endif //DLPROJECT_MAT_H
