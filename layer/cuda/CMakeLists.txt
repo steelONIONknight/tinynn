@@ -4,7 +4,10 @@ project(CudaOperator CUDA)
 set(CMAKE_CUDA_STANDARD 11)
 
 add_library(CudaOperator
-        absval_cuda.h absval_cuda.cpp absval_cuda.cu test_cuda.cu test_cuda.h)
+        absval_cuda.h absval_cuda.cpp absval_cuda.cu
+        test_cuda.cu test_cuda.h
+        innerproduct_cuda.cpp innerproduct_cuda.h innerproduct_cuda.cu
+        )
 
 set_target_properties(
         CudaOperator
