@@ -175,7 +175,7 @@ int test_layer_cuda(int type_index, const tinynn::ParamDict&pd, const std::vecto
         op->bottom_shapes[0] = a;
         op->top_shapes[0] = top_shape;
     }
-    op->load_parm(pd);
+    op->load_param(pd);
 
     tinynn::CudaModelBinFromMatArray mb(weights.data());
 
@@ -240,7 +240,7 @@ int test_layer_naive(int type_index, const tinynn::ParamDict& pd, const std::vec
         (*func)((T*)op);
     }
 
-    op->load_parm(pd);
+    op->load_param(pd);
 
     tinynn::ModelBinFromMatArray mb(weights.data());
 
