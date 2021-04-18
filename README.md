@@ -26,4 +26,5 @@ Mat（host），cudaMat（device）数据结构目前初步完成，涉及host�
 算子absval测试完毕。
 
 2021.4.18
+
 算子innerproduct部分测试完成。
