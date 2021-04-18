@@ -32,7 +32,10 @@ void *CudaAllocator::align_malloc(size_t size)
 
 void CudaAllocator::align_free(void *ptr)
 {
-    CHECK(cudaFree(ptr));
+    if (ptr)
+    {
+        CHECK(cudaFree(ptr));
+    }
 }
 
 void *CudaAllocator::align_malloc(int width, size_t elemsize)
