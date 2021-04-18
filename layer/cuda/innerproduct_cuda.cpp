@@ -14,7 +14,23 @@ InnerProduct_cuda::InnerProduct_cuda()
 {
     one_blob_only = true;
     support_inplace = false;
-    support_cuda = false;
+    support_cuda = true;
+    //默认使用0号GPU
+    CudaDevice cudev(0);
+    _cudaAllocator = new CudaAllocator(&cudev);
+
+    //给GPU变量指定CudaAllocator
+    activation_params.cudaAllocator = _cudaAllocator;
+    weight_data.cudaAllocator = _cudaAllocator;
+    bias_data.cudaAllocator = _cudaAllocator;
+}
+
+InnerProduct_cuda::~InnerProduct_cuda()
+{
+    activation_params.release();
+    weight_data.release();
+    bias_data.release();
+    delete _cudaAllocator;
 }
 
 int InnerProduct_cuda::load_param(const ParamDict &pd)
