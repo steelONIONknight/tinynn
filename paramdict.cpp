@@ -90,20 +90,20 @@ Mat ParamDict::get(int id, const Mat &def) const
 
 void ParamDict::set(int id, int def)
 {
-    if (d->params[id].type)
-        d->params[id].i = def;
+    d->params[id].type = 2;
+    d->params[id].i = def;
 }
 
 void ParamDict::set(int id, float def)
 {
-    if (d->params[id].type)
-        d->params[id].f = def;
+    d->params[id].type = 3;
+    d->params[id].f = def;
 }
 
 void ParamDict::set(int id, Mat &def)
 {
-    if (d->params[id].type)
-        d->params[id].v = def;
+    d->params[id].type = 4;
+    d->params[id].v = def;
 }
 
 void ParamDict::clear()
@@ -198,19 +198,21 @@ int ParamDict::load_param(const DataReader &dr)
             if (dr.scan("%d", &len) == 1)
             {
                 d->params[id].v.create(len);
-                float *ptr = (float*)d->params[id].v.data;
+//                float *ptr = (float*)d->params[id].v.data;
                 for (int i = 0; i < len; ++i) {
                     char vstr[16];
                     if (dr.scan(",%15[^,\n ]", vstr) == 1)
                     {
                         if (vstr_is_float(vstr) == 1)
                         {
+                            float* ptr = d->params[id].v;
                             ptr[i] = vstr_to_float(vstr);
                             is_float = 1;
                         }
                         else
                         {
-                            sscanf(vstr, "%d", ptr[i]);
+                            int* ptr = d->params[id].v;
+                            sscanf(vstr, "%d", &ptr[i]);
                             is_float = 0;
                         }
                     }
