@@ -5,4 +5,5 @@
 #ifndef DLPROJECT_LAYER_REGISTRY_H
 #define DLPROJECT_LAYER_REGISTRY_H
 {"AbsVal", AbsVal_final_layer_creator},
+{"InnerProduct", InnerProduct_final_layer_creator},
 #endif //DLPROJECT_LAYER_REGISTRY_H
