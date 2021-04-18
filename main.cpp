@@ -10,6 +10,7 @@
 #include "gpu.h"
 #include "./layer/cuda/test_cuda.h"
 #include "./tests/test_absval.h"
+#include "./tests/test_innerproduct.h"
 
 #define MALLOC_ALIGN 16
 
@@ -64,6 +65,10 @@ int main() {
 //
 //    print_matrix(matrix2);
 
-    test_absval();
+    //测试算子absval
+//    test_absval();
+
+    //测试算子innerproduct
+    test_innerproduct();
     return 0;
 }
