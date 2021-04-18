@@ -1075,7 +1075,7 @@ inline void CudaMat::create_like(const Mat &m, CudaAllocator *_cudaAllocator)
         create(m.width, m.elemsize, m.elempack, _cudaAllocator);
     else if (_dims == 2)
         create(m.width, m.height, m.elemsize, m.elempack, _cudaAllocator);
-    else
+    else if (_dims == 3)
         create(m.width, m.height, m.channel, m.elemsize, m.elempack, _cudaAllocator);
 
 }
@@ -1093,23 +1093,20 @@ inline void CudaMat::create_like(const CudaMat &cuMat, CudaAllocator *_cudaAlloc
 
 inline CudaMat& CudaMat::operator=(const Mat &m)
 {
-    create_like(m);
+    create_like(m, cudaAllocator);
 
     if (total() > 0)
     {
         if (dims == 1)
         {
-            data = cudaAllocator->align_malloc(width, elemsize);
             CHECK(cudaMemcpy(data, m.data, (size_t)width * elemsize, cudaMemcpyHostToDevice));
         }
         else if (dims == 2)
         {
-            data = cudaAllocator->align_malloc(width, height, elemsize);
             CHECK(cudaMemcpy(data, m.data, (size_t)width * height * elemsize, cudaMemcpyHostToDevice));
         }
         else if (dims == 3)
         {
-            data = cudaAllocator->align_malloc(width, height, channel, elemsize, &pitch, cstep);
             CHECK(cudaMemcpy2D(data, pitch, m.data, m.cstep * m.elemsize, (size_t)width * height * elemsize, channel, cudaMemcpyHostToDevice));
         }
         refcount = std::make_shared<int>(1);
