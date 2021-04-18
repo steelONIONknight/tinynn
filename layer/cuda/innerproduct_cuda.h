@@ -12,6 +12,7 @@ class InnerProduct_cuda: virtual public InnerProduct
 {
 public:
     InnerProduct_cuda();
+    ~InnerProduct_cuda();
     virtual int load_param(const ParamDict& pd);
     virtual int load_model(const ModelBin& mb);
     virtual int create_pipeline(const Option& opt);
@@ -28,6 +29,10 @@ public:
     //model
     CudaMat weight_data;
     CudaMat bias_data;
+
+private:
+    CudaAllocator* _cudaAllocator;
+
 };
 } // namespace tinynn
 #endif //TINYNN_INNERPRODUCT_CUDA_H
