@@ -177,14 +177,15 @@ int test_layer_cuda(int type_index, const tinynn::ParamDict&pd, const std::vecto
     }
     op->load_param(pd);
 
-    tinynn::CudaModelBinFromMatArray mb(weights.data());
-
+//    tinynn::CudaModelBinFromMatArray mb(weights.data());
+    tinynn::ModelBinFromMatArray mb(weights.data());
     op->load_model(mb);
 
     tinynn::Option opt = _opt;
     opt.num_threads = 1;
     opt.use_cuda_compute = true;
 
+    opt.blob_cuda_allocator = &cudaAllocator;
     opt.workspace_cuda_allocator = &cudaAllocator;
 
     opt.use_fp16_storage = false;
@@ -197,7 +198,7 @@ int test_layer_cuda(int type_index, const tinynn::ParamDict&pd, const std::vecto
 
     tinynn::CudaMat a_gpu(a2, &cudaAllocator);
     tinynn::CudaMat d_gpu;
-    d_gpu.create_like(a_gpu, &cudaAllocator);
+//    d_gpu.create_like(a_gpu, &cudaAllocator);
 
 
     std::chrono::high_resolution_clock::time_point begin, end;
@@ -240,11 +241,18 @@ int test_layer_naive(int type_index, const tinynn::ParamDict& pd, const std::vec
         (*func)((T*)op);
     }
 
-    op->load_param(pd);
+    //ncnn源码的其他平台的算子不会override虚函数load_param，
+    //所以通过基类指针调用虚函数会直接调用T::load_param(naive算子类的虚函数)。
+    //由于写的cuda算子类override了虚函数load_param，
+    //op->load_param不会调用T::load_param，而是调用了T_cuda::load_param。
+    //必须强制转换指针类型 ，以此调用T::load_param。
+    //对于之后类似的情况也是类似处理。
+//    op->load_param(pd);
+    ((T*)op)->T::load_param(pd);
 
     tinynn::ModelBinFromMatArray mb(weights.data());
 
-    op->load_model(mb);
+    ((T*)op)->T::load_model(mb);
 
     tinynn::Option opt;
     opt.num_threads = 1;
@@ -253,7 +261,9 @@ int test_layer_naive(int type_index, const tinynn::ParamDict& pd, const std::vec
     opt.use_fp16_storage = false;
     opt.use_fp16_arithmetic = false;
     opt.use_shader_pack8 = false;
-
+    //通过一些opt的选项来控制create_pipeline函数的行为，
+    //虽然调用的是T_xx::create_pipeline，但也能够实现
+    //调用T::create_pipeline相同的效果。
     op->create_pipeline(opt);
 
     if (op->support_inplace)
