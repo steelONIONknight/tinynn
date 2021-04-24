@@ -17,8 +17,9 @@ public:
 
 public:
     int device_index;
-    cudaDeviceProp cudaProp;
 };
+int get_cuda_device_count();
+void get_cuda_device_info();
 
 }//namespace tinynn
 //#endif
