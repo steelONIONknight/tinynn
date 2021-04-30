@@ -57,7 +57,7 @@ void *CudaAllocator::align_malloc(int width, int height, size_t elemsize)
 
 void *CudaAllocator::align_malloc(int width, int height, int channel, size_t elemsize, size_t* pitch, size_t cstep)
 {
-    void * buffer = nullptr;
+    void* buffer = nullptr;
     CHECK(cudaMallocPitch((void**)&buffer, pitch, cstep * elemsize, channel));
 
     return buffer;
