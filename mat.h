@@ -725,8 +725,7 @@ inline void Mat::create_like(const CudaMat &cuMat, Allocator *_allocator)
         create(cuMat.width, cuMat.height, cuMat.channel, cuMat.elemsize, cuMat.elempack, _allocator);
 
 }
-//TODO
-//maybe something wrong
+
 inline Mat &Mat::operator=(const CudaMat &cuMat)
 {
     release();
