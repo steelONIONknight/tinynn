@@ -64,7 +64,8 @@ int main() {
 //    matrix2 = cuMat;
 //
 //    print_matrix(matrix2);
-
+    tinynn::get_cuda_device_info();
+    printf("\n");
     //测试算子absval
 //    test_absval();
 
