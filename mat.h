@@ -7,6 +7,7 @@
 #include "allocator.h"
 #include <iostream>
 #include <memory>
+#include <algorithm>
 
 //#if TINYNN_CUDA
 #include "cuda_util.h"
@@ -77,6 +78,13 @@ public:
     void create_like(const Mat& m, Allocator* _allocator = nullptr);
 
     Mat& operator=(const Mat& m);
+
+    void fill(float v);
+    void fill(int v);
+
+    template<typename T>
+    void fill(T v);
+
     //tinynn CudaMat
     //从device侧传送结果到host侧
 
@@ -711,6 +719,31 @@ inline Mat &Mat::operator=(const Mat &m)
     cstep = m.cstep;
 
     return *this;
+}
+
+inline void Mat::fill(float v)
+{
+    int size = (int)total();
+    float* ptr = (float*)data;
+
+    std::fill_n(data, size, v);
+}
+
+inline void Mat::fill(int v)
+{
+    int size = (int)total();
+    int* ptr = (int*)data;
+
+    std::fill_n(data, size, v);
+}
+
+template<typename T>
+inline void Mat::fill(T v)
+{
+    int size = (int)total();
+    T* ptr = (T*)data;
+
+    std::fill_n(data, size, v);
 }
 
 //#if TINYNN_CUDA
