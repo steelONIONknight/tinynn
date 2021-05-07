@@ -28,7 +28,7 @@ static inline _Tp* align_ptr(_Tp* ptr, size_t size)
 }
 static inline void* align_malloc(size_t size)
 {
-#if (defined(__unix__)) &&_POSIX_C_SOURCE >=200112L
+#if (defined(__unix__)) && _POSIX_C_SOURCE >= 200112L
     void* ptr;
 
     if (posix_memalign(&ptr, MALLOC_ALIGN, size))
