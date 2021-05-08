@@ -161,7 +161,7 @@ __global__ void cuda_innerproduct_reduction_activation(const float* input, float
             return;
 
         float v = idx < width * (rowIdx + 1) ? input[idx] : 0.f;
-        for (int stride = 16; stride >= 1; stride /= 2)
+        for (int stride = warpSize / 2; stride >= 1; stride /= 2)
             v += __shfl_down_sync(0xffffffff, v, stride);
 
         if (laneIdx == 0)
