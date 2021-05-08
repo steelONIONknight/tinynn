@@ -726,7 +726,7 @@ inline void Mat::fill(float v)
     int size = (int)total();
     float* ptr = (float*)data;
 
-    std::fill_n(data, size, v);
+    std::fill_n(ptr, size, v);
 }
 
 inline void Mat::fill(int v)
@@ -734,7 +734,7 @@ inline void Mat::fill(int v)
     int size = (int)total();
     int* ptr = (int*)data;
 
-    std::fill_n(data, size, v);
+    std::fill_n(ptr, size, v);
 }
 
 template<typename T>
@@ -743,7 +743,7 @@ inline void Mat::fill(T v)
     int size = (int)total();
     T* ptr = (T*)data;
 
-    std::fill_n(data, size, v);
+    std::fill_n(ptr, size, v);
 }
 
 //#if TINYNN_CUDA
