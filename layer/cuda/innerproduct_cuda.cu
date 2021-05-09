@@ -12,6 +12,7 @@
 #include "../../mat.h"
 #include "../innerproduct.h"
 
+#define FULL_MASK 0xffffffff
 const int N_ITERATIONS = 32;
 
 //parameter pitch_num is in number of elements, not in bytes!
@@ -143,8 +144,8 @@ __global__ void cuda_innerproduct_activation(float* input, const float* bias_dat
 
 }
 
-__global__ void cuda_innerproduct_reduction_activation(const float* input, float* output, int width,
-                                                       const int weight_data_size, const int num_output)
+__global__ void cuda_innerproduct_reduction(const float* input, float* output, int width, const int weight_data_size,
+                                            const int num_output)
 {
     unsigned int laneIdx = threadIdx.x & 31;
     unsigned int colIdx = blockDim.x * blockIdx.x + threadIdx.x;
@@ -160,47 +161,21 @@ __global__ void cuda_innerproduct_reduction_activation(const float* input, float
         if (rowIdx >= num_output)
             return;
 
-        float v = idx < width * (rowIdx + 1) ? input[idx] : 0.f;
-        for (int stride = warpSize / 2; stride >= 1; stride /= 2)
-            v += __shfl_down_sync(0xffffffff, v, stride);
+        float v = 0.f;
+        const unsigned int mask = __ballot_sync(FULL_MASK, idx < width * (rowIdx + 1));
+        if (idx < width * (rowIdx + 1))
+        {
+            v = input[idx];
+            for (int stride = warpSize / 2; stride > 0; stride /= 2)
+                v += __shfl_down_sync(mask, v, stride);
+        }
+//        float v = idx < width * (rowIdx + 1) ? input[idx] : 0.f;
+//        for (int stride = warpSize / 2; stride >= 1; stride /= 2)
+//            v += __shfl_down_sync(FULL_MASK, v, stride);
 
         if (laneIdx == 0)
             atomicAdd(&output[rowIdx], v);
 
-//        __syncthreads();
-//
-//        if (blockIdx.x == 0 && threadIdx.x == 0)
-//        {
-//            if (bias_data != nullptr)
-//                output[rowIdx] += bias_data[rowIdx];
-//            if (activation_type == 1)
-//            {
-//                output[rowIdx] = max(output[rowIdx], 0.f);
-//            }
-//            else if (activation_type == 2)
-//            {
-//                float slope = activation_params[0];
-//                output[rowIdx] = output[rowIdx] > 0.f ? output[rowIdx] : output[rowIdx] * slope;
-//            }
-//            else if (activation_type == 3)
-//            {
-//                float min_val = activation_params[0];
-//                float max_val = activation_params[1];
-//
-//                if (output[rowIdx] < min_val)
-//                    output[rowIdx] = min_val;
-//                if (output[rowIdx] > max_val)
-//                    output[rowIdx] = max_val;
-//            }
-//            else if (activation_type == 4)
-//            {
-//                output[rowIdx] = (float)(1.f / 1.f + expf(-output[rowIdx]));
-//            }
-//            else if (activation_type == 5)
-//            {
-//                output[rowIdx] = (float)(output[rowIdx] * tanhf(logf(expf(output[rowIdx]) + 1.f)));
-//            }
-//        }
         rowIdx++;
         idx += width;
     }
@@ -343,13 +318,13 @@ int innerproduct_forward(const CudaMat& bottom_blob, const CudaMat& weight, cons
 
     if (bias_term == 0)
     {
-        cuda_innerproduct_reduction_activation<<<grid, block>>>(intermediate_res, (float*)top_blob.data,
+        cuda_innerproduct_reduction<<<grid, block>>>(intermediate_res, (float*)top_blob.data,
                                                                 bottom_blob.width * bottom_blob.height * bottom_blob.channel,
                                                                 weight_data_size, num_output);
     }
     else if (bias_term == 1)
     {
-        cuda_innerproduct_reduction_activation<<<grid, block>>>(intermediate_res, (float*)top_blob.data,
+        cuda_innerproduct_reduction<<<grid, block>>>(intermediate_res, (float*)top_blob.data,
                                                                 bottom_blob.width * bottom_blob.height * bottom_blob.channel,
                                                                 weight_data_size, num_output);
     }
