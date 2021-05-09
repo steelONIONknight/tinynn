@@ -4,7 +4,7 @@
 
 #ifndef TINYNN_PADDING_H
 #define TINYNN_PADDING_H
-#include "layer.h"
+#include "../layer.h"
 
 namespace tinynn
 {
