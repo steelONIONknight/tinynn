@@ -5,6 +5,7 @@
 #ifndef DLPROJECT_MAT_H
 #define DLPROJECT_MAT_H
 #include "allocator.h"
+#include "option.h"
 #include <iostream>
 #include <memory>
 #include <algorithm>
@@ -234,6 +235,9 @@ public:
 };
 unsigned short float32_to_float16(float value);
 float float16_to_float32(unsigned short value);
+
+void copy_make_border(const Mat& src, Mat& dst, int top, int bottom, int left, int right, int type, float v, const Option& opt = Option());
+
 
 inline Mat::Mat():width(0), height(0), channel(0), elemsize(0), allocator(0), data(0), refcount(0),
                   elempack(0), cstep(0), dims(0) {}
