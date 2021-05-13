@@ -236,6 +236,12 @@ public:
 unsigned short float32_to_float16(float value);
 float float16_to_float32(unsigned short value);
 
+//mat process
+enum BorderType
+{
+    BORDER_CONSTANT = 0,
+    BORDER_REPLICATE = 1,
+};
 void copy_make_border(const Mat& src, Mat& dst, int top, int bottom, int left, int right, int type, float v, const Option& opt = Option());
 
 
