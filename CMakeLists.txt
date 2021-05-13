@@ -67,7 +67,10 @@ add_executable(tinynn main.cpp
         tests/prng.h tests/testutil.h
         tests/test_absval.cpp tests/test_absval.h
         layer/innerproduct.cpp layer/innerproduct.h
-        tests/test_innerproduct.cpp tests/test_innerproduct.h)
+        tests/test_innerproduct.cpp tests/test_innerproduct.h
+        layer/convolution.cpp layer/convolution.h
+        layer_type.h layer_type_enum.h
+        layer/padding.cpp layer/padding.h)
 
 
 target_link_libraries(tinynn ${EXTRA_LIBS}
