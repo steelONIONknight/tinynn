@@ -15,7 +15,7 @@ InnerProduct_cuda::InnerProduct_cuda()
     one_blob_only = true;
     support_inplace = false;
     support_cuda = true;
-    //默认使用0号GPU
+    //default use GPU 0
     CudaDevice cudev(0);
     _cudaAllocator = new CudaAllocator(&cudev);
 
