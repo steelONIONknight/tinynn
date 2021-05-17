@@ -244,6 +244,10 @@ enum BorderType
 };
 void copy_make_border(const Mat& src, Mat& dst, int top, int bottom, int left, int right, int type, float v, const Option& opt = Option());
 
+//#if TINYNN_CUDA
+void copy_make_border(const CudaMat& src, CudaMat& dst, int top, int bottom, int left, int right, int type, float v, const Option& opt = Option());
+//#endif
+
 
 inline Mat::Mat():width(0), height(0), channel(0), elemsize(0), allocator(0), data(0), refcount(0),
                   elempack(0), cstep(0), dims(0) {}

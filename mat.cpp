@@ -166,4 +166,30 @@ void copy_make_border(const Mat& src, Mat& dst, int top, int bottom, int left, i
     delete padding;
 }
 
+
+//#if TINYNN_CUDA
+void copy_make_border(const CudaMat& src, CudaMat& dst, int top, int bottom, int left, int right, int type, float v, const Option& opt)
+{
+    Layer* padding = create_layer(LayerType::Padding);
+
+    ParamDict pd;
+    pd.set(0, top);
+    pd.set(1, bottom);
+    pd.set(2, left);
+    pd.set(3, right);
+    pd.set(4, type);
+    pd.set(5, v);
+
+    padding->load_param(pd);
+
+    padding->create_pipeline(opt);
+
+    padding->forward(src, dst, opt);
+
+    padding->destroy_pipeline(opt);
+
+    delete padding;
+}
+
+//#endif
 } // namespace tinynn
