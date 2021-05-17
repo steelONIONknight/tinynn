@@ -57,7 +57,7 @@ int Convolution::create_pipeline(const Option &opt)
 
     return 0;
 }
-//TODO
+
 int Convolution::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) const
 {
     //conv with N*N kernel
@@ -100,7 +100,122 @@ int Convolution::forward(const Mat &bottom_blob, Mat &top_blob, const Option &op
         }
     }
 
+    int w = bottom_blob.width;
+    int h = bottom_blob.height;
+    int channels = bottom_blob.channel;
+    size_t elemsize = bottom_blob.elemsize;
 
+    const int kernel_extent_w = dilation_w * (kernel_w - 1) + 1;
+    const int kernel_extent_h = dilation_h * (kernel_h - 1) + 1;
+
+    Mat bottom_blob_bordered;
+    make_padding(bottom_blob, bottom_blob_bordered, opt);
+    if (bottom_blob_bordered.empty())
+        return -100;
+
+    w = bottom_blob_bordered.width;
+    h = bottom_blob_bordered.height;
+
+    int outw = (w - kernel_extent_w) / stride_w + 1;
+    int outh = (h - kernel_extent_h) / stride_h + 1;
+
+    const int maxk = kernel_w * kernel_h;
+
+    //kernel offset
+    std::vector<int> _space_ofs(maxk);
+    int* space_ofs = &_space_ofs[0];
+    {
+        int p1 = 0;
+        int p2 = 0;
+        int gap = w * dilation_h - kernel_w * dilation_w;
+        for (int i = 0; i < kernel_h; ++i)
+        {
+            for (int j = 0; j < kernel_w; ++j)
+            {
+                space_ofs[p1] = p2;
+                p1++;
+                p2 += dilation_w;
+            }
+            p2 += gap;
+        }
+    }
+
+    //fp32
+    top_blob.create(outw, outh, num_output, elemsize, opt.blob_allocator);
+    if (top_blob.empty())
+        return -100;
+
+//#pragma omp parallel for num_threads(opt.num_threads)
+    for (int p = 0; p < num_output; ++p)
+    {
+        float* outptr = top_blob.refer_channel(p);
+
+        for (int i = 0; i < outh; ++i)
+        {
+            for (int j = 0; j < outw; ++j)
+            {
+                float sum = 0.f;
+
+                if (bias_term)
+                    sum = bias_data[p];
+
+                const float* kptr = (const float*)weight_data + p * maxk * channels;
+
+                for (int q = 0; q < channels; ++q)
+                {
+                    const Mat m = bottom_blob_bordered.refer_channel(q);
+                    const float* sptr = m.row(i * stride_h) + j * stride_w;
+
+                    for (int k = 0; k < maxk; ++k)
+                    {
+                        float value = sptr[space_ofs[k]];
+                        float wt = kptr[k];
+                        sum += value * wt;
+                    }
+                    kptr += maxk;
+                }
+
+                if (activation_type == 1)
+                {
+                    sum = std::max(sum, 0.f);
+                }
+                else if (activation_type == 2)
+                {
+                    float slope = activation_params[0];
+                    sum = sum > 0.f ? sum : sum * slope;
+                }
+                else if (activation_type == 3)
+                {
+                    float min = activation_params[0];
+                    float max = activation_params[1];
+                    if (sum < min)
+                        sum = min;
+                    if (sum > max)
+                        sum = max;
+                }
+                else if (activation_type == 4)
+                {
+                    sum = static_cast<float>(1.f / (1.f + exp(-sum)));
+                }
+                else if (activation_type == 5)
+                {
+                    const float MISH_THRESHOLD = 20;
+                    float x = sum, y;
+                    if (x > MISH_THRESHOLD)
+                        y = x;
+                    else if (x < -MISH_THRESHOLD)
+                        y = expf(x);
+                    else
+                        y = logf(expf(x) + 1);
+                    sum = static_cast<float>(x * tanh(y));
+                }
+
+                outptr[p] = sum;
+            }
+
+            outptr += outw;
+        }
+    }
 }
 
 void Convolution::make_padding(const Mat &bottom_blob, Mat &bottom_blob_bordered, const Option &opt) const
@@ -144,4 +259,4 @@ void Convolution::make_padding(const Mat &bottom_blob, Mat &bottom_blob_bordered
     }
 }
 
-}
+} // namespace tinynn
