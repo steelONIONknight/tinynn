@@ -2,6 +2,8 @@
 // Created by lifan on 2021/5/4.
 //
 
+//所有int8，fp16数据计算，待之后有机会添加
+
 #include "padding.h"
 
 namespace tinynn
@@ -321,7 +323,8 @@ int Padding::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) c
 
         if (elemsize == 1)
         {
-            copy_make_border_image<signed char>(bottom_blob, top_blob, 0, left, type, static_cast<signed char>(value));
+            //TODO
+//            copy_make_border_image<signed char>(bottom_blob, top_blob, 0, left, type, static_cast<signed char>(value));
         }
         if (elemsize == 2)
         {
@@ -345,7 +348,8 @@ int Padding::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) c
 
         if (elemsize == 1)
         {
-            copy_make_border_image<signed char>(bottom_blob, top_blob, top, left, type, static_cast<signed char>(value));
+            //TODO
+//            copy_make_border_image<signed char>(bottom_blob, top_blob, top, left, type, static_cast<signed char>(value));
         }
         if (elemsize == 2)
         {
@@ -377,7 +381,8 @@ int Padding::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) c
             {
                 if (elemsize == 1)
                 {
-                    borderm.fill(static_cast<signed char>(pad_value));
+                    //TODO
+//                    borderm.fill(static_cast<signed char>(pad_value));
                 }
                 if (elemsize == 2)
                 {
@@ -407,7 +412,8 @@ int Padding::forward(const Mat &bottom_blob, Mat &top_blob, const Option &opt) c
 
                 if (elemsize == 1)
                 {
-                    copy_make_border_image<signed char>(m, borderm, top, left, type, static_cast<signed char>(pad_value));
+                    //TODO
+//                    copy_make_border_image<signed char>(m, borderm, top, left, type, static_cast<signed char>(pad_value));
                 }
                 if (elemsize == 2)
                 {
@@ -468,7 +474,8 @@ int Padding::forward(const std::vector<Mat> &bottom_blobs, std::vector<Mat> &top
 
         if (elemsize == 1)
         {
-            copy_make_border_image<signed char>(bottom_blob, top_blob, 0, _left, type, static_cast<signed char>(value));
+            //TODO
+//            copy_make_border_image<signed char>(bottom_blob, top_blob, 0, _left, type, static_cast<signed char>(value));
         }
         if (elemsize == 2)
         {
@@ -491,7 +498,8 @@ int Padding::forward(const std::vector<Mat> &bottom_blobs, std::vector<Mat> &top
 
         if (elemsize == 1)
         {
-            copy_make_border_image<signed char>(bottom_blob, top_blob, _top, _left, type, static_cast<signed char>(value));
+            //TODO
+//            copy_make_border_image<signed char>(bottom_blob, top_blob, _top, _left, type, static_cast<signed char>(value));
         }
         if (elemsize == 2)
         {
@@ -523,7 +531,8 @@ int Padding::forward(const std::vector<Mat> &bottom_blobs, std::vector<Mat> &top
             {
                 if (elemsize == 1)
                 {
-                    borderm.fill(static_cast<signed char>(pad_value));
+                    //TODO
+//                    borderm.fill(static_cast<signed char>(pad_value));
                 }
                 if (elemsize == 2)
                 {
@@ -553,7 +562,8 @@ int Padding::forward(const std::vector<Mat> &bottom_blobs, std::vector<Mat> &top
 
                 if (elemsize == 1)
                 {
-                    copy_make_border_image<signed char>(m, borderm, _top, _left, type, static_cast<signed char>(pad_value));
+                    //TODO
+//                    copy_make_border_image<signed char>(m, borderm, _top, _left, type, static_cast<signed char>(pad_value));
                 }
                 if (elemsize == 2)
                 {
