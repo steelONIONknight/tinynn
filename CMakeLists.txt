@@ -70,7 +70,8 @@ add_executable(tinynn main.cpp
         tests/test_innerproduct.cpp tests/test_innerproduct.h
         layer/convolution.cpp layer/convolution.h
         layer_type.h layer_type_enum.h
-        layer/padding.cpp layer/padding.h)
+        layer/padding.cpp layer/padding.h
+        tests/test_padding.cpp tests/test_padding.h)
 
 
 target_link_libraries(tinynn ${EXTRA_LIBS}

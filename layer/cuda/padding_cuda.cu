@@ -292,7 +292,7 @@ int copy_make_border_image_cuda(const CudaMat& bottom_blob, CudaMat& top_blob, i
     dim3 grid;
     int block_x = 1, block_y = 1, block_z = 1;
     int grid_x = 1, grid_y = 1, grid_z = 1;
-
+    
     int w = top_blob.width;
     int h = top_blob.height;
     int channels = top_blob.channel;
